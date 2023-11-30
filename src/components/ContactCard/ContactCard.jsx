@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { BsPersonFillX } from 'react-icons/bs';
 import toast from 'react-hot-toast';
 
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/contacts/operations';
 
 import { ContactContainer, Phone, DeleteBtn } from './ContactCard.styled';
 
