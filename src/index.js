@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 
@@ -13,11 +14,13 @@ import { theme } from 'styles/theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <App />
-        <GlobalStyles />
-      </ThemeProvider>
-    </Provider>
+    <BrowserRouter basename="/goit-react-hw-08-phonebook">
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <App />
+          <GlobalStyles />
+        </ThemeProvider>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
