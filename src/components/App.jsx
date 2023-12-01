@@ -8,6 +8,7 @@ import { Layout } from './Layout/Layout';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute/RestictedRoute';
 import { useAuth } from 'hooks/useAuth';
+import { Loader } from './Loader/Loader';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -26,7 +27,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Loader />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

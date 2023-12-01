@@ -1,4 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectContacts,
@@ -8,9 +10,15 @@ import {
 import { List, ContactListMessage } from './ContactList.styled';
 import { ContactCard } from 'components/ContactCard/ContactCard';
 
+import { fetchContacts } from 'redux/contacts/operations';
+
 export const ContactList = () => {
+  const dispatch = useDispatch();
   const items = useSelector(selectContacts);
   const visibleContacts = useSelector(selectVisibleContacts);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <List>

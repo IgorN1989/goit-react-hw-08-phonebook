@@ -17,14 +17,14 @@ import {
 
 const contactSchema = object().shape({
   name: string().required('Please enter name'),
-  phone: number()
+  number: number()
     .typeError('Please enter only numbers')
     .required('Please enter phone number'),
 });
 
 const initialValues = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 export const ContactForm = () => {
@@ -32,6 +32,7 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
 
   const checkNewContact = newContact => {
+    console.log(newContact);
     return contacts.some(
       contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
     );
@@ -45,6 +46,7 @@ export const ContactForm = () => {
     dispatch(addContact(newContact));
     toast.success(`Contact ${newContact.name} was added!`);
   };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -60,10 +62,10 @@ export const ContactForm = () => {
           <Input id="name" type="text" name="name" />
           <ErrorMsg name="name" component="span" />
         </Label>
-        <Label htmlFor="phone">
+        <Label htmlFor="number">
           <span>Number</span>
-          <Input id="phone" type="tel" name="phone" />
-          <ErrorMsg name="phone" component="span" />
+          <Input id="number" type="tel" name="number" />
+          <ErrorMsg name="number" component="span" />
         </Label>
         <AddBtn type="submit">
           <BsPersonPlusFill size={32} />
