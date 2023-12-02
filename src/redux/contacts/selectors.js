@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+import { matchSorter } from 'match-sorter';
 
 export const selectContacts = state => state.contacts.items;
 
@@ -11,14 +12,6 @@ export const selectFilter = state => state.filter;
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
   (contacts, filter) => {
-    const visibleContacts = contacts
-      .filter(contact =>
-        contact.name.toLowerCase().includes(filter.toLowerCase())
-      )
-      .sort((prevContact, nextContact) =>
-        prevContact.name.localeCompare(nextContact.name)
-      );
-
-    return visibleContacts;
+    return matchSorter(contacts, filter, { keys: ['name', 'number'] });
   }
 );

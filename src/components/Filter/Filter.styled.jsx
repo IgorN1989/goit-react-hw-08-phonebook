@@ -1,8 +1,14 @@
 import styled from 'styled-components';
+import { Box, TextField } from '@mui/material';
 
-export const FilterContainer = styled.div`
+export const FilterContainer = styled(Box)`
   padding: ${p => p.theme.spacing(2)} 0;
   font-size: 16px;
+  border: 1px solid ${p => p.theme.colors.main};
+  background-color: tomato;
+
+  display: flex;
+  align-items: center;
 `;
 export const FilterLabel = styled.label`
   display: flex;
