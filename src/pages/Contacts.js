@@ -17,7 +17,8 @@ export default function Contacts() {
 
   return (
     <div>
-      <ContactForm />
+      FORM
+      {/* <ContactForm />
       {isLoading && <Loader />}
       <h2>CONTACTS</h2>
       {error ? (
@@ -32,7 +33,7 @@ export default function Contacts() {
             <ContactListMessage>Contacts list is empty</ContactListMessage>
           )}
         </div>
-      )}
+      )} */}
     </div>
   );
 }

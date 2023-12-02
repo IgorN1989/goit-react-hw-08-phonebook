@@ -1,20 +1,24 @@
-import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
-import css from './Navigation.module.css';
+import { Nav, NavElement } from './Navigation.styled';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <NavLink className={css.link} to="/">
-        Home
-      </NavLink>
+    <Nav>
+      <NavElement to="/">
+        <HomeOutlinedIcon sx={{ fontSize: 'inherit', mr: 0.5 }} />
+
+        <p>Home</p>
+      </NavElement>
       {isLoggedIn && (
-        <NavLink className={css.link} to="/contacts">
-          Contacts
-        </NavLink>
+        <NavElement to="/contacts">
+          <ImportContactsOutlinedIcon sx={{ fontSize: 'inherit', mr: 0.5 }} />
+          <p>Contacts</p>
+        </NavElement>
       )}
-    </nav>
+    </Nav>
   );
 };

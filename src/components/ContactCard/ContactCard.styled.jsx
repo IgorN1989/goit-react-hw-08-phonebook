@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ContactContainer = styled.div`
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: space-between;
   padding: ${p => p.theme.spacing(2)};
@@ -16,16 +16,16 @@ export const ContactContainer = styled.div`
     background-color: ${p => p.theme.colors.main};
     color: ${p => p.theme.colors.reverse};
     box-shadow: ${p => p.theme.shadow};
-  }
+  } */
 `;
 
 export const Phone = styled.span`
-  color: rgb(1, 180, 228);
-  margin-left: ${p => p.theme.spacing(2)};
+  /* color: rgb(1, 180, 228);
+  margin-left: ${p => p.theme.spacing(2)}; */
 `;
 
 export const DeleteBtn = styled.button`
-  cursor: pointer;
+  /* cursor: pointer;
   display: flex;
   align-items: center;
   gap: ${p => p.theme.spacing(2)};
@@ -40,5 +40,5 @@ export const DeleteBtn = styled.button`
   &:hover {
     background-color: ${p => p.theme.colors.reverse};
     color: ${p => p.theme.colors.main};
-  }
+  } */
 `;
