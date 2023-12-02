@@ -6,7 +6,15 @@ import { Loader } from 'components/Loader/Loader';
 
 export const Layout = () => {
   return (
-    <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
+    <div
+      style={{
+        minWidth: 320,
+        maxWidth: 960,
+        margin: '0 auto',
+        padding: '0 16px',
+        outline: '10px solid red',
+      }}
+    >
       <AppBar />
       <Suspense fallback={<Loader />}>
         <Outlet />

@@ -1,11 +1,14 @@
-export const theme = {
-  colors: {
-    main: 'rgb(0, 0, 0, 0.5)',
-    reverse: 'rgb(255, 255, 255)',
-    error: 'rgb(255, 99, 71)',
-  },
-  shadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
-  spacing: value => `${value * 4}px`,
-  radius: '8px',
-  transition: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
-};
+import { createTheme } from '@mui/material';
+
+export const theme =
+  createTheme();
+  //   {
+  //   palette: {
+  //     primary: {
+  //       main: '#1976d2',
+  //       light: '#42a5f5',
+  //       dark: '#1565c0',
+  //       contrastText: '#fff',
+  //     },
+  //   },
+  // }
