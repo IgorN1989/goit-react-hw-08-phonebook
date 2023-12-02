@@ -12,7 +12,6 @@ export const Layout = () => {
         maxWidth: 960,
         margin: '0 auto',
         padding: '0 16px',
-        outline: '10px solid red',
       }}
     >
       <AppBar />

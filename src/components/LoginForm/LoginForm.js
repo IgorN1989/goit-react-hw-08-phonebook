@@ -1,6 +1,17 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import css from './LoginForm.module.css';
+
+import {
+  Box,
+  Button,
+  Grid,
+  TextField,
+  Paper,
+  Typography,
+  Link,
+} from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -18,16 +29,95 @@ export const LoginForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <Grid
+      container
+      component="main"
+      sx={{
+        display: 'flex',
+        flexDirection: { xs: 'column', sm: 'row' },
+        minHeight: 'calc(100vh - 48px)',
+      }}
+    >
+      <Grid
+        item
+        xs={false}
+        sm={4}
+        md={7}
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          background:
+            'linear-gradient(90deg, rgba(21,101,192,1) 33%, rgba(25,118,210,1) 66%, rgba(66,165,245,1) 100%)',
+        }}
+      >
+        {' '}
+        <Typography
+          component="h1"
+          variant="h3"
+          sx={{
+            color: 'white',
+            fontWeight: { xs: 500, lg: 700 },
+            fontSize: { xs: 32, md: 64 },
+          }}
+        >
+          Log In
+        </Typography>
+      </Grid>
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={0} square>
+        <Box
+          sx={{
+            my: 8,
+            mx: 4,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1 }}>
+            <LockOutlinedIcon />
+          </Avatar>
+
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            sx={{ mt: 1 }}
+            autoComplete="off"
+          >
+            <TextField
+              margin="normal"
+              id="email"
+              label="Email Address"
+              name="email"
+              fullWidth
+              required
+            />
+            <TextField
+              margin="normal"
+              id="password"
+              label="Password"
+              name="password"
+              fullWidth
+              required
+            />
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 2 }}>
+              Log in
+            </Button>
+            <Box
+              sx={{
+                mt: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Link href="register" variant="body2">
+                {"Don't have an account? Registration"}
+              </Link>
+            </Box>
+          </Box>
+        </Box>
+      </Grid>
+    </Grid>
   );
 };

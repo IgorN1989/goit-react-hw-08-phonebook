@@ -35,7 +35,7 @@ export const RegisterForm = () => {
       component="main"
       sx={{
         display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
+        flexDirection: { xs: 'column', sm: 'row' },
         minHeight: 'calc(100vh - 48px)',
       }}
     >
@@ -59,7 +59,7 @@ export const RegisterForm = () => {
           sx={{
             color: 'white',
             fontWeight: { xs: 500, lg: 700 },
-            fontSize: { xs: 24, lg: 64 },
+            fontSize: { xs: 32, md: 64 },
           }}
         >
           Registration
@@ -75,12 +75,10 @@ export const RegisterForm = () => {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'tomato' }}>
+          <Avatar sx={{ m: 1 }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h2" variant="h5">
-            Register
-          </Typography>
+
           <Box
             component="form"
             onSubmit={handleSubmit}
@@ -112,16 +110,21 @@ export const RegisterForm = () => {
               fullWidth
               required
             />
-            <Button type="submit" fullWidth variant="contained">
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 2 }}>
               Register
             </Button>
-            <Grid container>
-              <Grid item>
-                <Link href="login" variant="body2">
-                  {'Have an account? Log In'}
-                </Link>
-              </Grid>
-            </Grid>
+            <Box
+              sx={{
+                mt: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Link href="login" variant="body2">
+                {'Have an account? Log In'}
+              </Link>
+            </Box>
           </Box>
         </Box>
       </Grid>
