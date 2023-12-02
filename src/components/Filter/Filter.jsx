@@ -4,8 +4,8 @@ import { setFilter } from 'redux/contacts/filterSlice';
 
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 
-import { FilterContainer, FilterLabel, FilterInput } from './Filter.styled';
-import { Box, TextField } from '@mui/material';
+import { FilterContainer } from './Filter.styled';
+import { TextField } from '@mui/material';
 
 export const Filter = () => {
   const dispatch = useDispatch();

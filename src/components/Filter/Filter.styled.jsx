@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Box, TextField } from '@mui/material';
+import { Box } from '@mui/material';
 
 export const FilterContainer = styled(Box)`
   padding: ${p => p.theme.spacing(2)} 0;
