@@ -90,6 +90,7 @@ export const LoginForm = () => {
               label="Email Address"
               name="email"
               fullWidth
+              autoFocus
               required
             />
             <TextField
