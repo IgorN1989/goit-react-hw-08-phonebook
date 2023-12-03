@@ -21,7 +21,7 @@ export const NewContactForm = ({ onClose }) => {
 
   const onAddContact = e => {
     e.preventDefault();
-    const form = e.currentTarget;
+    const form = e.target;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
     if (checkNewContact(name)) {
@@ -47,7 +47,6 @@ export const NewContactForm = ({ onClose }) => {
         margin="normal"
         label="Number"
         name="number"
-        type="tel"
         fullWidth
         required
       />
