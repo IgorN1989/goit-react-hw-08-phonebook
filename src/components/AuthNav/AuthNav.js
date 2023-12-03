@@ -1,5 +1,7 @@
 import { Nav, NavElement } from './AuthNav.styled.jsx';
 
+// ================================================================
+
 export const AuthNav = () => {
   return (
     <Nav>
@@ -8,12 +10,3 @@ export const AuthNav = () => {
     </Nav>
   );
 };
-
-// <div>
-//       <NavLink className={css.link} to="/register">
-//         Register
-//       </NavLink>
-//       <NavLink className={css.link} to="/login">
-//         Log In
-//       </NavLink>
-//     </div>

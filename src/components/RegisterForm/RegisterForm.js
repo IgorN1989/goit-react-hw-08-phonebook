@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+
 import { register } from 'redux/auth/operations';
 
 import {
@@ -13,10 +14,12 @@ import {
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
+// ================================================================
+
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
+  const onSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
     dispatch(
@@ -81,7 +84,7 @@ export const RegisterForm = () => {
 
           <Box
             component="form"
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
             sx={{ mt: 1 }}
             autoComplete="off"
           >

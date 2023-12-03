@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+
 import { logIn } from 'redux/auth/operations';
 
 import {
@@ -13,10 +14,12 @@ import {
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
+// ================================================================
+
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
+  const onSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
     dispatch(
@@ -80,7 +83,7 @@ export const LoginForm = () => {
 
           <Box
             component="form"
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
             sx={{ mt: 1 }}
             autoComplete="off"
           >
