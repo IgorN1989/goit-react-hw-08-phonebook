@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
-import { Container, Typography, LinearProgress } from '@mui/material';
+import { Container, Typography, LinearProgress, Box } from '@mui/material';
 
 export default function Contacts() {
   const isLoading = useSelector(selectIsLoading);
@@ -25,14 +25,22 @@ export default function Contacts() {
         />
       )}
       {error ? (
-        <Typography
-          color="#f44336"
-          component="h3"
-          variant="h5"
-          fontWeight={700}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
         >
-          {error}! Please reload this page!
-        </Typography>
+          <Typography
+            color="#f44336"
+            component="h3"
+            variant="h5"
+            fontWeight={700}
+          >
+            {error}! Please reload this page!
+          </Typography>
+        </Box>
       ) : (
         <div>
           <Filter />

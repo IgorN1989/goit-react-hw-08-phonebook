@@ -27,7 +27,7 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.fulfilled, handleDeleteFulfilled)
       .addCase(deleteContact.rejected, handleRejected)
       .addCase(updateContact.pending, handlePending)
-      .addCase(updateContact.fulfilled, handleAddFulfilled)
+      .addCase(updateContact.fulfilled, handleUpdateFulfilled)
       .addCase(updateContact.rejected, handleRejected)
       .addCase(logOut.fulfilled, handleLogOutFulfilled);
   },
@@ -62,6 +62,15 @@ const handleDeleteFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
   state.items = state.items.filter(contact => contact.id !== action.payload.id);
+};
+
+const handleUpdateFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  const index = state.items.findIndex(
+    contact => contact.id === action.payload.id
+  );
+  state.items.splice(index, 1, action.payload);
 };
 
 const handleLogOutFulfilled = state => {
