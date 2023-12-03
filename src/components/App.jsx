@@ -1,6 +1,6 @@
 import { useEffect, lazy } from 'react';
-import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { refreshUser } from 'redux/auth/operations';
 
@@ -8,7 +8,7 @@ import { Layout } from './Layout/Layout';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute/RestictedRoute';
 import { useAuth } from 'hooks/useAuth';
-import { Loader } from './Loader/Loader';
+import { LinearProgress } from '@mui/material';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -27,7 +27,9 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Loader />
+    <LinearProgress
+      sx={{ height: '8px', position: 'fixed', top: 48, left: 0 }}
+    />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

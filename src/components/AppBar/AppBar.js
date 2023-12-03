@@ -4,6 +4,8 @@ import { AuthNav } from '../AuthNav/AuthNav';
 import { useAuth } from 'hooks/useAuth';
 import { Box } from '@mui/material';
 
+// ================================================================
+
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
 

@@ -2,7 +2,9 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AppBar } from 'components/AppBar/AppBar';
-import { Loader } from 'components/Loader/Loader';
+import { LinearProgress } from '@mui/material';
+
+// ================================================================
 
 export const Layout = () => {
   return (
@@ -15,7 +17,13 @@ export const Layout = () => {
       }}
     >
       <AppBar />
-      <Suspense fallback={<Loader />}>
+      <Suspense
+        fallback={
+          <LinearProgress
+            sx={{ height: '8px', position: 'fixed', top: 48, left: 0 }}
+          />
+        }
+      >
         <Outlet />
       </Suspense>
       <Toaster position="top-center" reverseOrder={false} />

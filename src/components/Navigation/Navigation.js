@@ -3,6 +3,8 @@ import { Nav, NavElement } from './Navigation.styled';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined';
 
+// ================================================================
+
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
@@ -10,7 +12,6 @@ export const Navigation = () => {
     <Nav>
       <NavElement to="/">
         <HomeOutlinedIcon sx={{ fontSize: 'inherit', mr: 0.5 }} />
-
         <p>Home</p>
       </NavElement>
       {isLoggedIn && (
