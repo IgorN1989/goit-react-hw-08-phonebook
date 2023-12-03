@@ -14,10 +14,13 @@ export const EditForm = ({ id, currentName, currentNumber, onClose }) => {
     e.preventDefault();
     const form = e.currentTarget;
     const contactId = form.id;
-    const newName = form.elements.name.value;
-    const newNumber = form.elements.number.value;
-    dispatch(updateContact(contactId, { name: newName, number: newNumber }));
-    toast.success(`Contact ${newName} was updated!`);
+    const name = form.elements.name.value;
+    const number = form.elements.number.value;
+    const newData = { name, number };
+    console.log(contactId);
+    console.log(newData);
+    dispatch(updateContact({ id, name, number }));
+    toast.success(`Contact ${name} was updated!`);
     onClose();
   };
 

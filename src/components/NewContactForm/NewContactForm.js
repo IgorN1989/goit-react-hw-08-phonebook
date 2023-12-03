@@ -25,7 +25,7 @@ export const NewContactForm = ({ onClose }) => {
     const name = form.elements.name.value;
     const number = form.elements.number.value;
     if (checkNewContact(name)) {
-      alert(`${name} is already in contacts.`);
+      toast.error(`${name} is already in contacts.`);
       return;
     }
     dispatch(addContact({ name, number }));
