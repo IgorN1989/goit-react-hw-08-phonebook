@@ -110,6 +110,7 @@ export const RegisterForm = () => {
               id="password"
               label="Password"
               name="password"
+              type="password"
               fullWidth
               required
             />

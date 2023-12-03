@@ -101,6 +101,7 @@ export const LoginForm = () => {
               id="password"
               label="Password"
               name="password"
+              type="password"
               fullWidth
               required
             />
