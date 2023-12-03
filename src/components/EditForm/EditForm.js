@@ -14,7 +14,6 @@ export const EditForm = ({ id, currentName, currentNumber, onClose }) => {
 
   const checkNumber = e => {
     const value = e.target.value;
-    console.log(value);
     if (value.length === 0) {
       setIsNumber(true);
       return;
