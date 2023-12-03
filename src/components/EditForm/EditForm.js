@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 
@@ -8,7 +9,24 @@ import { Box, Button, TextField } from '@mui/material';
 // ================================================================
 
 export const EditForm = ({ id, currentName, currentNumber, onClose }) => {
+  const [isNumber, setIsNumber] = useState(true);
   const dispatch = useDispatch();
+
+  const checkNumber = e => {
+    const value = e.target.value;
+    console.log(value);
+    if (value.length === 0) {
+      setIsNumber(true);
+      return;
+    }
+
+    if (isNaN(value)) {
+      setIsNumber(false);
+      return;
+    }
+
+    setIsNumber(true);
+  };
 
   const onUpdateContact = e => {
     e.preventDefault();
@@ -42,6 +60,9 @@ export const EditForm = ({ id, currentName, currentNumber, onClose }) => {
         defaultValue={currentNumber}
         fullWidth
         required
+        onChange={checkNumber}
+        error={!isNumber}
+        helperText="Please enter only numbers"
       />
 
       <Button type="submit" fullWidth variant="contained" sx={{ mt: 2 }}>

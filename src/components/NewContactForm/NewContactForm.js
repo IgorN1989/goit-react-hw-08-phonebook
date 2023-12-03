@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 
@@ -9,14 +10,30 @@ import { Box, Button, TextField } from '@mui/material';
 // ================================================================
 
 export const NewContactForm = ({ onClose }) => {
+  const [isNumber, setIsNumber] = useState(true);
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const checkNewContact = name => {
-    console.log(name);
     return contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
+  };
+
+  const checkNumber = e => {
+    const value = e.target.value;
+    console.log(value);
+    if (value.length === 0) {
+      setIsNumber(true);
+      return;
+    }
+
+    if (isNaN(value)) {
+      setIsNumber(false);
+      return;
+    }
+
+    setIsNumber(true);
   };
 
   const onAddContact = e => {
@@ -49,6 +66,9 @@ export const NewContactForm = ({ onClose }) => {
         name="number"
         fullWidth
         required
+        onChange={checkNumber}
+        error={!isNumber}
+        helperText="Please enter only numbers"
       />
 
       <Button type="submit" fullWidth variant="contained" sx={{ mt: 2 }}>
